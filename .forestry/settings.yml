@@ -1,9 +1,33 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: 
-webhook_url: 
-sections: 
+admin_path:
+webhook_url:
+sections:
+- type: heading
+  label: Content
+- type: document
+  path: src/index.md
+  label: Home Page
+- type: directory
+  path: src/pages
+  label: Pages
+  create: documents
+  match: "*.md"
+  templates:
+  - page
+- type: directory
+  path: src/posts
+  label: Posts
+  create: documents
+  match: "*.md"
+  templates:
+  - post
+- type: heading
+  label: Globals
+- type: document
+  path: src/_data/tokens.json
+  label: Theme settings
 upload_dir: src/images
 public_path: "/images"
 front_matter_path: ''
